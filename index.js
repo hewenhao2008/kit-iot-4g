@@ -25,7 +25,8 @@ if (_.isEmpty(config.getData())) {
     console.log(chalk.yellow('  --console'));
     console.log(chalk.red('-----------------------'));
     console.log(chalk.green('Ex: kit-iot-natura --alias="Device alias" --public-key="yourpublickey" --console'));
-    return;
+
+    process.exit(1);
   }
 
   config.saveData(argv);
