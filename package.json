@@ -1,6 +1,6 @@
 {
   "name": "kit-iot-natura",
-  "version": "0.2.5",
+  "version": "0.1.0",
   "description": "Kit Desenvolvimento IoT V2 - Telefonica Vivo | Natura",
   "main": "index.js",
   "bin": "./bin/index.js",
