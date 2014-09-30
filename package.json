@@ -1,7 +1,7 @@
 {
   "name": "kit-iot-natura",
   "version": "0.1.0",
-  "description": "Kit Desenvolvimento IoT V2 - Telefonica Vivo | Natura",
+  "description": "Kit Desenvolvimento - Telefonica Vivo | Natura",
   "main": "index.js",
   "bin": "./bin/index.js",
   "preferGlobal": true,
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "tbeta-git:vitorleal/m2m/kit_iot.git"
+    "url": "git@github.com:telefonicadigital/kit-iot-4g.git#natura"
   },
   "author": "TID - Telefonica Vivo",
   "license": "MIT",
