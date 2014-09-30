@@ -1,16 +1,13 @@
 
 /********************************************************************/
-/** Código Fonte - Arduino + Shield Campus Party 2014              **/
+/** Código Fonte - Arduino + Shield Natura                         **/
 /**                                                                **/
 /** ┌──────────────────────────────────┐                           **/
 /** │Revisão│ Descrição                           │    Data    │   **/
-/** │  01   │ Revisão inicial                     │ 14.01.2014 │   **/
-/** │  02   │ Removido DHT11 e SPL                │ 18.07.2014 │   **/
+/** │  01   │ Revisão inicial                     │ 30.09.2014 │   **/
 /** │       │                                                      **/
 /** └──────────────────────────────────┘                           **/
 /********************************************************************/
-
-#include <CapacitiveSensor.h>
 
 /*
  * Test variables
@@ -18,13 +15,11 @@
 #define TMPPIN A0
 #define LUZPIN A1
 #define CHAVEPIN 5
-CapacitiveSensor cs_4_2 = CapacitiveSensor(4,2);
 unsigned int chave = 0;
 float tmp = 0;
-int cap = 0;
 unsigned int luz = 0;
 
-/* 
+/*
  * End test variables
  */
 
@@ -57,7 +52,7 @@ void loop() {
       messageBuffer[i++] = x;
     }
   }
-  
+
   if (debug) {
      Test();
   }
@@ -99,7 +94,6 @@ void process() {
     case 2 : dRead(pin,val);      break;
     case 3 : aWrite(pin,val);     break;
     case 4 : aRead(pin,val);      break;
-    case 5 : capacitiveRead(pin); break;
     case 99: toggleDebug(val);    break;
     default:                      break;
   }
@@ -233,17 +227,6 @@ int getPin(char *pin) {
 
 
 /*
- * Capacitive Sensor read
- */
-void capacitiveRead(char *pin) {
-  Debug("capacitiveRead");
-  char m[8];
-  sprintf(m, "%s::%d", pin, cs_4_2.capacitiveSensor(30));
-  Serial.println(m);
-}
-
-
-/*
  * Debug
  */
 void Debug(char *name) {
@@ -260,12 +243,10 @@ void Test() {
   for(int i=0; i<30; i++){
     tmp = tmp + analogRead(TMPPIN);
     luz = luz + analogRead(LUZPIN);
-    cap = cap + cs_4_2.capacitiveSensor(30);
   }
   tmp = tmp/30;
   luz = luz/30;
-  cap = cap/30;
-  
+
   chave = digitalRead(CHAVEPIN);
 
   Serial.print("Luz = ");
@@ -276,12 +257,9 @@ void Test() {
   Serial.print(" | ");
   Serial.print("Temperatura = ");
   Serial.print((float)tmp, 2);
-  Serial.print(" | ");
-  Serial.print("Capacidade = ");
-  Serial.print(cap);
   Serial.print('\n');
 
-  cap = luz = tmp = 0;
-  
+  luz = tmp = 0;
+
   delay(10);
 }

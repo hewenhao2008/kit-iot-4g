@@ -1,8 +1,6 @@
-#Kit Desenvolvimento IoT 4G [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+#Kit Desenvolvimento Natura [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
-[![NPM](https://nodei.co/npm/kit-iot-4g.png?downloads=true)](https://nodei.co/npm/kit-iot-4g/)
+[![NPM](https://nodei.co/npm/kit-iot-4g.png?downloads=true)](https://nodei.co/npm/kit-iot-natura/)
 
-Esse kit foi desenvolvido para estimular desenvolvedores a entrar no mundo do *"Internet of Things"*
+Esse kit foi desenvolvido para teste da plataforma Natura
 
-#Saiba mais
-Para mais informações sobre o kit e documentação visite o site [http://iot.telefonicabeta.com](http://iot.telefonicabeta.com)
