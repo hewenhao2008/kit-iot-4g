@@ -24,10 +24,6 @@ app.service("Storage", function () {
       ]
     };
 
-    if (this.get('lonLat')) {
-      userProps['UserProps'].push({ "name": "lonLat", "value": this.get('lonLat') });
-    }
-
     return JSON.stringify(userProps);
   };
 });

@@ -14,11 +14,10 @@ app.controller('mainCtrl', function ($scope, socket, $http, $location, Auth, Sto
 
       if(data.errors) {
         $scope.errors    = data.errors;
-        $scope.mapErrors = data.mapErrors;
         $scope.error     = null;
 
       } else if (data.error) {
-        $scope.errors = $scope.mapErrors = $scope.error = null;
+        $scope.errors = $scope.error = null;
 
         if (data.error.code === 'EHOSTUNREACH') {
           $scope.error  = {
@@ -29,7 +28,7 @@ app.controller('mainCtrl', function ($scope, socket, $http, $location, Auth, Sto
         }
 
       } else if (data.exceptionId) {
-        $scope.errors = $scope.mapErrors = $scope.error = null;
+        $scope.errors = $scope.error = null;
 
         $scope.error = {
           'msg': 'Erro ao autenticar o token'
@@ -39,10 +38,10 @@ app.controller('mainCtrl', function ($scope, socket, $http, $location, Auth, Sto
         };
 
       } else {
-        $scope.errors = $scope.mapErrors = $scope.error = null;
+        $scope.errors = $scope.error = null;
         Auth.login($scope.usuario, $scope.password, $scope.token, $scope.apikey, $scope.name, $scope.email, $scope.tel);
 
-        $location.path('/map');
+        $location.path('/dashboard');
       }
 
     })
