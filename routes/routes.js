@@ -75,21 +75,6 @@ var routes = function (app) {
       });
     }
   });
-
-
-  //Save lonLat
-  app.post('/lonLat', function (req, res) {
-
-    request({
-      url   : URL +'/m2m/v2/services/'+ req.body.token +'/assets/kit-iot-4g/',
-      method: 'PUT',
-      body  : req.body.userProps
-    }, function (e, r, body) {
-
-      res.send(body);
-    });
-
-  });
 };
 
 module.exports = routes;

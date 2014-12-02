@@ -7,7 +7,7 @@ app.service("Auth", function ($rootScope, Storage, $location) {
   };
 
   this.hasLonLat = function () {
-    return Storage.get('lonLat');
+    return false;
   };
 
   this.login = function (usuario, password, token, apikey, name, email, tel) {
@@ -32,7 +32,6 @@ app.service("Auth", function ($rootScope, Storage, $location) {
     $rootScope.apikey   = null;
     $rootScope.usuario  = null;
     $rootScope.password = null;
-    $rootScope.lonLat   = null;
 
     Storage.delete('usuario');
     Storage.delete('password');
@@ -41,6 +40,5 @@ app.service("Auth", function ($rootScope, Storage, $location) {
     Storage.delete('name');
     Storage.delete('email');
     Storage.delete('tel');
-    Storage.delete('lonLat');
   };
 });

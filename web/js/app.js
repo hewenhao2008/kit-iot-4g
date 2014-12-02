@@ -9,10 +9,6 @@ var app = angular.module('kitIoT', ['ngRoute'])
         templateUrl: 'views/dashboardView.html',
         controller : 'dashBoardCtrl'
       })
-      .when('/map', {
-        templateUrl: 'views/mapView.html',
-        controller : 'mapCtrl'
-      })
       .when('/disconnect', {
         templateUrl: 'views/disconnectView.html',
         controller : 'disconnectCtrl'
@@ -35,9 +31,6 @@ app.run(function ($rootScope, $location, Auth, Storage, socket) {
     if (!Auth.isLoggedIn()) {
       $location.path('/');
 
-    } else if (Auth.isLoggedIn() && !Auth.hasLonLat()) {
-      $location.path('/map');
-
     } else if (next.templateUrl === 'views/disconnectView.html') {
       $location.path('/disconnect');
 
@@ -50,6 +43,5 @@ app.run(function ($rootScope, $location, Auth, Storage, socket) {
     $rootScope.url = $location.path();
   });
 
-  $rootScope.lonLat = Storage.get('lonLat');
 });
 
