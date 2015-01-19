@@ -6,6 +6,14 @@ Esse Kit foi desenvolvido pela [Telefonica VIVO](http://www.centrodeinovacaobras
 
 
 #Documentação
+##Pins utilizados
+![Pins utilizados](https://raw.githubusercontent.com/telefonicadigital/kit-iot-4g/master/web/img/arduinoBoard.png)
+* Push Button - **Digital 5**
+* Capacitor - **Digital 2 e 4**
+* Luminosidade - **Analógico A1**
+* Temperatura - **Analógico A0**
+
+
 ##API Rest
 Para acessar as informações do seu Kit utilize a API Rest da nossa cloud. Lembre-se de substituir **{token}** pelo token enviado ao seu email no início do Hackathon.
 
