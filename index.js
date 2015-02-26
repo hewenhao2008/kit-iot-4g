@@ -18,11 +18,14 @@ isTask = argv["show-credentials"];
 //Check if we want to use the console mode ...
 isConsole = argv.setup || argv.console;
 
-if (isTask) {
+//Check if show log
+showLog = argv["show-log"];
 
+if (isTask) {
   if (argv["show-credentials"]) {
     var config = t.getConfig();
-    for (key in config) {
+
+    for (var key in config) {
       console.log(key + " = " + config[key]);
     }
   }
@@ -31,8 +34,8 @@ if (isTask) {
   //Check for console setup ...
   if (argv.setup) {
     isConsole = true;
-    if (!argv.name || !argv.username || !argv.password || !argv.email || !argv.tel || !argv.apikey || !argv.token)
-    {
+
+    if (!argv.name || !argv.username || !argv.password || !argv.email || !argv.tel || !argv.apikey || !argv.token) {
       console.log("Erro! os seguintes parametros sao necessarios:");
       console.log("  --name");
       console.log("  --password");
@@ -42,7 +45,9 @@ if (isTask) {
       console.log("  --token");
       console.log("Exemplo:");
       console.log("kit-iot-4g --setup --name=Seu Nome --username=cprecifeA_b --password=0123 --email=a@a.com --tel=123 --apikey=a012b024 --token=0123");
+
       return ;
+
     } else {
       t.saveConfig({
         "name":     argv.name,
@@ -56,7 +61,12 @@ if (isTask) {
     }
   }
 
-  var KitIoT = new kitiot(isConsole);
+  var KitIoT = new kitiot({
+    isConsole: isConsole,
+    showLog: showLog,
+    loopTime: 5000
+  });
+
   insight.track('init');
 
   //If is not console start the io connection
