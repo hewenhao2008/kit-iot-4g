@@ -42,7 +42,7 @@ if (argv.setup) {
       "username": argv.username,
       "password": argv.password,
       "apikey"  : argv.apikey,
-      "service" : argv.token
+      "service" : argv.service
     });
   }
 
