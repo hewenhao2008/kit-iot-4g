@@ -6,25 +6,30 @@ app.controller('mainCtrl', function ($scope, socket, $http, $location, Auth, Sto
     $scope.loading = true;
 
     $http.post('/login', {
-      name : $scope.name, email: $scope.email, usuario: $scope.usuario, password: $scope.password, token: $scope.token, apikey: $scope.apikey, tel: $scope.tel
+      name : $scope.name,
+      email: $scope.email,
+      username: $scope.username,
+      password: $scope.password,
+      service: $scope.service,
+      apikey: $scope.apikey
     })
     .success(function (data, status, headers) {
 
       $scope.loading = false;
 
       if(data.errors) {
-        $scope.errors    = data.errors;
-        $scope.error     = null;
+        $scope.errors = data.errors;
+        $scope.error = null;
 
       } else if (data.error) {
         $scope.errors = $scope.error = null;
 
         if (data.error.code === 'EHOSTUNREACH') {
-          $scope.error  = {
+          $scope.error = {
             'msg': 'Sem conexão com a internet'
           };
         } else {
-          $scope.error  = data.error;
+          $scope.error = data.error;
         }
 
       } else if (data.exceptionId) {
@@ -34,12 +39,12 @@ app.controller('mainCtrl', function ($scope, socket, $http, $location, Auth, Sto
           'msg': 'Erro ao autenticar o token'
         };
         $scope.mapErrors = {
-          'token': 'Erro ao autenticar o token',
+          'service': 'Erro ao autenticar o token',
         };
 
       } else {
         $scope.errors = $scope.error = null;
-        Auth.login($scope.usuario, $scope.password, $scope.token, $scope.apikey, $scope.name, $scope.email, $scope.tel);
+        Auth.login($scope.username, $scope.password, $scope.service, $scope.apikey);
 
         $location.path('/dashboard');
       }
