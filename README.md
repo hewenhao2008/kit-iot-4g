@@ -1,12 +1,41 @@
-#Kit Desenvolvimento IoT 4G
+# Kit Desenvolvimento IoT 4G
 
 [![NPM](https://nodei.co/npm/kit-iot-4g.png?downloads=true)](https://nodei.co/npm/kit-iot-4g/)
 
 Esse Kit foi desenvolvido pela [Telefonica VIVO](http://www.centrodeinovacaobrasil.com/) para estimular desenvolvedores a entrar no mundo do *"Internet of Things"*.
 
 
-#Documentação
-##Pins utilizados
+# Documentação
+## Como rodar o script
+Temos algumas opções:
+
+Para configurar as credencias (username, password, apikey e service)
+```
+$ kit-iot-4g --setup --username="your-user-name" --password="your-pass" --apikey="your-api-key" --service="your-service-name"
+```
+
+Para rodar sem mostrar log na linha de comando
+```
+$ kit-iot-4g
+```
+
+Para rodar mostrando as informações dos sensores na linha de comando
+```
+$ kit-iot-4g --show-log
+```
+
+Para rodar e abrir no navegador
+```
+$ kit-iot-4g --web
+```
+
+Para rodar e mostrar as credenciais que estão configuradas (username, password, apikey e service)
+```
+$ kit-iot-4g --show-credentials
+```
+
+
+## Pins utilizados
 ![Pins utilizados](https://raw.githubusercontent.com/telefonicadigital/kit-iot-4g/master/web/img/arduinoBoard.jpg)
 * Push Button - **Digital 5**
 * Capacitor - **Digital 2 e 4**
@@ -14,10 +43,10 @@ Esse Kit foi desenvolvido pela [Telefonica VIVO](http://www.centrodeinovacaobras
 * Temperatura - **Analógico A0**
 
 
-##API Rest
+## API Rest
 Para acessar as informações do seu Kit utilize a API Rest da nossa cloud. Lembre-se de substituir **{token}** pelo token enviado ao seu email no início do Hackathon.
 
-###GET: services/{token}/
+### GET: services/{token}/
 Informações detalhadas do serviço.
 
 **URL**: [http://dca.telefonicabeta.com/m2m/v2/services/{token}/](http://dca.telefonicabeta.com/m2m/v2/services/{token}/)
@@ -162,7 +191,7 @@ Exemplo **JSON** de retorno:
 ```
 
 
-###GET: services/{token}/assets/{token}/data/
+### GET: services/{token}/assets/{token}/data/
 Retorna o histórico de dados recebidos de um determinado asset de um determinado serviço.
 
 **URL**: [http://dca.telefonicabeta.com/m2m/v2/services/{token}/assets/{token}/data/](http://dca.telefonicabeta.com/m2m/v2/services/{token}/assets/{token}/data/)
